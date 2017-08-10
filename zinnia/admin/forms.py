@@ -65,7 +65,7 @@ class EntryAdminForm(forms.ModelForm):
         self.fields['categories'].widget = RelatedFieldWidgetWrapper(
             self.fields['categories'].widget, rel, self.admin_site)
         self.fields['sites'].initial = [Site.objects.get_current()]
-        if self.instance.pk is not None:
+        if self.instance.pk is None:
             self.fields['comment_enabled'].initial = False
             self.fields['pingback_enabled'].initial = False
             self.fields['trackback_enabled'].initial = False
